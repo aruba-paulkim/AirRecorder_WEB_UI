@@ -16,7 +16,7 @@ https://github.com/aruba-paulkim/AirRecorder_WEB_UI
 ------------------------------------------------------------------------------
 ### Starting Service
 ------------------------------------------------------------------------------
-<pre>git clone git@github.com:aruba-paulkim/AirRecorder_WEB_UI.git
+<pre>git clone https://github.com/aruba-paulkim/AirRecorder_WEB_UI.git
 cd AirRecorder_WEB_UI
 npm install
 npm start</pre>
@@ -26,7 +26,8 @@ connect to http://127.0.0.1:8900
 ------------------------------------------------------------------------------
 ### Login
 ------------------------------------------------------------------------------
-default id / password : admin / arwebuiAdmin!
+default id : admin
+default pw : arwebuiAdmin!
 
 ![](public/images/arwebui_login.png)
 
