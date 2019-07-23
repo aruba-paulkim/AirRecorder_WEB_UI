@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+		<% include ./menu.ejs %>
+		<hr>
+		<form name="commands" action="/commands" method="post" autocomplete="off">
+		<table border=0>
+			<tr>
+				<td width="300">
+				<select name="part">
+					<option value="" <% if(part=='') {%>selected<% } %>>Select</option>
+					<option value="command_name" <% if(part=='command_name') {%>selected<% } %>>command name</option>
+					<option value="description" <% if(part=='description') {%>selected<% } %>>description</option>
+				</select>
+				<input type="text" name="keyword" value="<%= keyword %>">  
+				</td>
+				<td width="70">
+				<input type="submit" name="" value="Search" class="button">
+				</td>
+				<td align="right">
+				Total <%=commands.length%> &nbsp;&nbsp;
+				</td>
+				<td width="100">
+				<input type="button" name="" value="Add" class="button" onclick="addCommand();" >
+				</td>
+
+			</tr>
+		</table>
+		</form>
+		<table class="bordered">
+			<tr>
+				<th width="60">Command Name</th>
+				<th width="60">Description</th>
+				<th width="50">Action</th>
+			</tr>
+			<% if(commands == ''){ %>
+			<td colspan="11" align="center">no data</td>
+			<% } else { %>
+			<% for ( var i = 0 ; i < commands.length ; i++){ %>
+			<tr>
+				<td><a href="/command/<%= commands[i].seq %>"><%= commands[i].command_name %></a></td>
+				<td><%= commands[i].description %></td>
+				<td align="center">
+					<input type="button" name="delete" value="delete" class="button" onclick="deleteCommand('<%= commands[i].seq  %>');" /><br>
+				</td>
+			</tr>
+			<% } %>
+			<% } %>
+		</table>
+	</body>
+</html>
+
+
+    

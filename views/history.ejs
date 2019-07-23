@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+		<% include ./menu.ejs %>
+		<hr>
+		<form id="list" name="history" action="/history" method="post" autocomplete="off">
+		<table border=0>
+			<tr>
+				<td width="300">
+				<select name="part">
+					<option value="" <% if(part=='') {%>selected<% } %>>Select</option>
+					<option value="execute_datetime" <% if(part=='execute_datetime') {%>selected<% } %>>Execute Datetime</option>
+					<option value="ip_address" <% if(part=='ip_address') {%>selected<% } %>>IP Address</option>
+					<option value="command_name" <% if(part=='command_name') {%>selected<% } %>>Command Name</option>
+				</select>
+					<input type="text" name="keyword" value="<%= keyword %>">  
+				</td>
+				<td width="70">
+					<input type="submit" name="" value="Search" class="button">
+				</td>
+				<td align="right">
+					Total : <%=history.length %> &nbsp;&nbsp;
+				</td>
+			</tr>
+		</table>
+		</form>
+		<table class="bordered">
+			<tr>
+				<th width="60">Execute DateTime</th>
+				<th width="60">IP Address</th>
+				<th width="60">Command Name</th>
+				<th width="50">Action</th>
+			</tr>
+			<% if(history == ''){ %>
+			<td colspan="11" align="center">no data</td>
+			<% } else { %>
+			<% for ( var i = 0 ; i < history.length ; i++) { %>
+			<%
+				if(history[i] == ".DS_Store") { continue; }
+				var tmp = history[i].split('^');
+
+				if(part == "execute_datetime") {
+					if(tmp[0].indexOf(keyword) < 0 ) { continue; }
+				} else if(part == "ip_address") {
+					if(tmp[1].indexOf(keyword) < 0 ) { continue; }
+				} else if(part == "command_name") {
+					if(tmp[2].indexOf(keyword) < 0 ) { continue; }
+				} else { }
+
+				var hash = crypto.createHash('sha256');
+				hash.update(history[i]);
+				str_hash = hash.digest('hex');
+
+			%>
+			<tr>
+				<td><a href="/history/<%=str_hash%>"><%=tmp[0] %></a></td>
+				<td><%=tmp[1]%></td>
+				<td><%=tmp[2].split('\-')[0]%></td>
+				<td align="center"><input type="button" name="delete" value="delete" class="button" onclick="deleteHistory('<%=str_hash%>');" /><br>
+				</td>
+			</tr>
+			<% } %>
+			<% } %>
+		</table>
+	</body>
+</html>
+
+
+    

@@ -1,0 +1,24 @@
+{
+  "name": "AirRecorder_WEB_UI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^3.1.0",
+    "express": ">=2.6.9",
+    "express-session": ">=1.16.2",
+    "ejs": ">=2.5.5",
+    "sqlite3": ">=4.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.hpe.com:paul-kim/arwebui.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

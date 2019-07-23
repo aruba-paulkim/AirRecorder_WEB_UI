@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+	<div class="login_input">
+	<form name="loginform" method="post" action="/login">
+	<table width="300" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #cccccc;">
+	  <tbody>
+	  <tr>
+	    <td width="300" height="31" align="center" valign="middle" colspan="2" style="solid #cccccc; border-bottom:1px solid #cccccc;"><img src="/images/logo.png" height="50"></td>
+	  </tr>
+	  <tr>
+	    <td width="120" height="25" align="center" valign="middle" style="border-right:1px solid #cccccc; border-bottom:1px solid #cccccc;">아이디</td>
+	    <td width="180" valign="middle" style="border-bottom:1px solid #cccccc; padding:6px;">
+		<input name="user_id" type="text" size="18" ></td>
+	  </tr>
+	  <tr>
+	    <td width="120" height="25" align="center" valign="middle" style="border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">패스워드</td>
+	    <td width="180" valign="middle" style="border-bottom:1px solid #cccccc;padding:6px;">
+		<input name="user_pw" type="password" size="18" ></td>
+	  </tr>
+	  <tr>
+	    <td width="300" height="31" align="center" valign="middle" colspan="2"><input type="submit" class="button" id="loginbtn" name="로그인" value="로그인"></td>
+	  </tr>
+	</tbody></table>
+	</form>
+	</div>
+	</body>
+</html>

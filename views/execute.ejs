@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+		<!--h2>Execute</h2-->
+		<% include ./menu.ejs %>
+		<hr>
+		<form id="execute" name="execute" action="/execute" method="post" autocomplete="off">
+		<table class="bordered">
+			<tr>
+				<th width="300">Devices</th>
+				<th width="*">Commands</th>
+				<th width="50">Excute</th>
+			</tr>
+			<tr>
+				<td>
+					<% for ( var i = 0 ; i < devices.length ; i++){ %>
+					<input type="checkbox" name="sel_devices" value="<%= devices[i].seq %>"><%= devices[i].device_name %>(<%= devices[i].ip_address %>)</input><br/>
+					<% } %>
+				</td>
+				<td>
+					<!--select name="sel_command" onchange="sel_command(this.form, this.value);"-->
+					<select name="sel_command">
+					<!--option value="">선택</option-->
+					<% for ( var i = 0 ; i < commands.length ; i++){ %>
+					<option value="<%= commands[i].seq %>"><%= commands[i].command_name %></option>
+					<% } %>
+					</select><br/>
+					<!--textarea name="command" style="width: 500px; height: 60px;"></textarea-->	
+				</td>
+				<td>
+					<input type="button" name="execute" value="Execute" class="button" onclick="ar_execute(this.form)" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	</body>
+</html>
+
+
+    

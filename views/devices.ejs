@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+		<% include ./menu.ejs %>
+		<hr>
+		<form id="list" name="devices" action="/devices" method="post" autocomplete="off">
+		<table border=0>
+			<tr>
+				<td width="300">
+				<select name="part">
+					<option value="" <% if(part=='') {%>selected<% } %>>Select</option>
+					<option value="device_name" <% if(part=='device_name') {%>selected<% } %>>Device Name</option>
+					<option value="ip_address" <% if(part=='ip_address') {%>selected<% } %>>ip address</option>
+					<option value="username" <% if(part=='username') {%>selected<% } %>>username</option>
+				</select>
+					<input type="text" name="keyword" value="<%= keyword %>">  
+				</td>
+				<td width="70">
+					<input type="submit" name="" value="Search" class="button">
+				</td>
+				<td align="right">
+					Total : <%=devices.length %> &nbsp;&nbsp;
+				</td>
+				<td width="100">
+					<input type="button" name="" value="Add" class="button" onclick="addDevice();" >
+				</td>
+			</tr>
+		</table>
+		</form>
+		<table class="bordered">
+			<tr>
+				<th width="60">Device Name</th>
+				<th width="60">IP Address / Domain </th>
+				<th width="30">User Name</th>
+				<th width="50">Action</th>
+			</tr>
+			<% if(devices == ''){ %>
+			<td colspan="11" align="center">no data</td>
+			<% } else { %>
+			<% for ( var i = 0 ; i < devices.length ; i++){ %>
+			<tr>
+				<td><a href="/device/<%= devices[i].seq %>"><%= devices[i].device_name %></a></td>
+				<td><%= devices[i].ip_address  %></td>
+				<td><%= devices[i].username  %></td>
+				<td align="center"><input type="button" name="delete" value="delete" class="button" onclick="deleteDevice('<%= devices[i].seq  %>');" /><br>
+				</td>
+			</tr>
+			<% } %>
+			<% } %>
+		</table>
+	</body>
+</html>
+
+
+    

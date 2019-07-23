@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+		<% include ./menu.ejs %>
+		<hr>
+		<form id="device" name="device" action="/device/<%=seq%>" method="post" autocomplete="off">
+		<input type="hidden" name="seq" value="<%=seq%>">
+		<table class="bordered">
+			<tr>
+				<td>* Device Name : </td>
+				<td>
+				<input type="text" name="device_name" value="<%=device_name%>" style="width: 200px;">
+				</td>
+			</tr>
+			<tr>
+				<td>* IP Address / Domain : </td>
+				<td>
+				<input type="text" name="ip_address" value="<%=ip_address%>" style="width: 200px;">
+				</td>
+			</tr>
+			<tr>
+				<td>* User Name : </td>
+				<td>
+				<input type="text" name="username" value="<%=username%>" style="width: 200px;">
+				</td>
+			</tr>
+			<tr>
+				<td>* Password : </td>
+				<td>
+				<input type="password" name="password" value="" style="width: 200px;">
+				</td>
+			</tr>
+			<tr>
+				<td>* Enable Password : </td>
+				<td>
+				<input type="password" name="enable_pw" value="" style="width: 200px;">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+				<input type="submit" name="" value="저장" class="button">
+				<input type="button" name="" value="취소" class="button" onclick="javascript:history.back()">
+				</td>
+			</tr>
+		</table>
+		</form>
+	</body>
+</html>
+
+
+    

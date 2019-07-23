@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+		<% include ./menu.ejs %>
+		<hr>
+		<form id="command" name="command" action="/command/<%=seq%>" method="post" autocomplete="off">
+		<input type="hidden" name="seq" value="<%=seq%>">
+		<table class="bordered">
+			<tr>
+				<td>* command Name : </td>
+				<td>
+				<input type="text" name="command_name" value="<%=command_name%>" style="width: 200px;">
+				</td>
+			</tr>
+			<tr>
+				<td>* Description : </td>
+				<td>
+				<input type="text" name="description" value="<%=description%>" style="width: 200px;">
+				</td>
+			</tr>
+			<tr>
+				<td>* Contents : </td>
+				<td>
+					<textarea name="contents" style="width: 500px; height: 100px;"><%=contents%></textarea>	<br>
+					Guide : AirRecorder Tutorial - <a href="http://community.arubanetworks.com/t5/Community-Tribal-Knowledge-Base/AirRecorder-Tutorial-Part-1/ta-p/157646" target="_new">Part 1</a>, <a href="http://community.arubanetworks.com/t5/Community-Tribal-Knowledge-Base/AirRecorder-Tutorial-Part-2/ta-p/221390" target="_new">Part 2</a>, <a href="https://ase.arubanetworks.com/solutions/id/90" target="_new">Scripts Builder</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+				<input type="submit" name="" value="저장" class="button">
+				<input type="button" name="" value="취소" class="button" onclick="javascript:history.back()">
+				</td>
+			</tr>
+		</table>
+		</form>
+	</body>
+</html>
+
+
+    

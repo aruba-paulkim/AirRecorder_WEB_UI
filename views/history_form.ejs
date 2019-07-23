@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+	<head>
+	<% include ./header.ejs %>
+	</head>
+	<body>
+		<% include ./menu.ejs %>
+		<hr>
+		<table class="bordered">
+			<tr>
+				<td>* Execute DateTime : </td>
+				<td>
+				<%=execute_datetime %>
+				</td>
+			</tr>
+			<tr>
+				<td>* IP Address : </td>
+				<td>
+				<%=ip_address %>
+				</td>
+			</tr>
+			<tr>
+				<td>* Command Name : </td>
+				<td>
+				<%=command_name.split('\-')[0] %>
+				</td>
+			</tr>
+			<tr>
+				<td>* Log : </td>
+				<td><pre><%=log%></pre></td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+
+    
