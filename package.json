@@ -4,11 +4,12 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "async": "^3.1.0",
-    "express": ">=2.6.9",
-    "express-session": ">=1.16.2",
-    "ejs": ">=2.5.5",
-    "sqlite3": ">=4.0.9"
+    "async": "latest",
+    "ejs": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "node-gyp": "latest",
+    "sqlite3": "5.0.0"
   },
   "devDependencies": {},
   "scripts": {
