@@ -10,6 +10,8 @@ const sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(__dirname+'/../db/arwebui.db');
 var debug = false;
 
+var AirRecorder = "AirRecorder-1.6.9-release.jar";
+
 function pubDEC(EncryptMSG){
 	var PUBKEY = fs.readFileSync(__dirname+'/public.key');
 	var msg = crypto.publicDecrypt(PUBKEY, Buffer.from(EncryptMSG, 'base64'));
@@ -98,7 +100,7 @@ app.post('/execute', function(req, res){
 								password = pubDEC(devices[0].password);
 								enable_pw = pubDEC(devices[0].enable_pw);
 		
-								///usr/bin/java -jar /Users/paul/Desktop/app/router/AirRecorder-1.5.2-release.jar 192.168.10.2 -c /Users/paul/Desktop/app/router/../commands/ap_list.txt -u admin -p enable -e enable
+								///usr/bin/java -jar AirRecorder-1.5.2-release.jar 192.168.10.2 -c ../commands/ap_list.txt -u admin -p enable -e enable
 								const exec = util.promisify(require('child_process').exec);
 								async function AirRecorder() {
 									var d = new Date(),
@@ -110,7 +112,7 @@ app.post('/execute', function(req, res){
 									if (min < 10) min = '0' + min;
 									if (sec < 10) sec = '0' + sec;
 									var now = [year, month, day].join('') + '' + [hour,min,sec].join('');
-									cmd = "java -jar "+__dirname+"/AirRecorder-1.5.2-release.jar ";
+									cmd = "java -jar "+__dirname+"/"+AirRecorder+" ";
 									cmd+= ip_address+" ";
 									cmd+= "-c "+__dirname+"/.."+commands[0].filepath+" ";
 									cmd+= "-u "+username+" ";
