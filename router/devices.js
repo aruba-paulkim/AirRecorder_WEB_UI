@@ -134,8 +134,8 @@ app.post('/device/:seq', function(req, res){
 			var seq=req.params.seq, device_name='', ip_address='', username='', password='', enable_pw='';
 
 			if(req.body.device_name === '' || req.body.ip_address == '' ||
-				req.body.username === '' || req.body.password === '' ||
-				req.body.enable_pw === '') {
+				req.body.username === '' || req.body.password === '' 
+				) {
 				res.end('<!DOCTYPE html><head><title></title><meta http-equiv="content-type" content="text/html;charset=UTF-8"><script>alert("* 는 필수 입니다."); history.back();</script></head></html>');
 			} else {
 				if(req.params.seq != 0) {

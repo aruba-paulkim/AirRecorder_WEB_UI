@@ -8,7 +8,7 @@ var util = require('util');
 
 const sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(__dirname+'/../db/arwebui.db');
-var debug = false;
+var debug = true;
 
 var AirRecorderVersion = "1.6.9";
 
@@ -117,7 +117,8 @@ app.post('/execute', function(req, res){
 									cmd+= "-c "+__dirname+"/.."+commands[0].filepath+" ";
 									cmd+= "-u "+username+" ";
 									cmd+= "-p "+password+" ";
-									cmd+= "-e "+enable_pw+" ";
+									if (enable_pw == "") cmd+= "-e '' ";
+									else cmd+= "-e "+enable_pw+" ";
 									cmd+= "--log-file "+__dirname+"/../history/"+now+"^"+ip_address+"^"+commands[0].command_name;
 									if(debug) { console.log(cmd); }
 									try {
