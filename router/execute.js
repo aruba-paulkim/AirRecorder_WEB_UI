@@ -10,7 +10,7 @@ const sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(__dirname+'/../db/arwebui.db');
 var debug = false;
 
-var AirRecorder = "AirRecorder-1.6.9-release.jar";
+var AirRecorderVersion = "1.6.9";
 
 function pubDEC(EncryptMSG){
 	var PUBKEY = fs.readFileSync(__dirname+'/public.key');
@@ -112,7 +112,7 @@ app.post('/execute', function(req, res){
 									if (min < 10) min = '0' + min;
 									if (sec < 10) sec = '0' + sec;
 									var now = [year, month, day].join('') + '' + [hour,min,sec].join('');
-									cmd = "java -jar "+__dirname+"/"+AirRecorder+" ";
+									cmd = "java -jar "+__dirname+"/AirRecorder-"+AirRecorderVersion+"-release.jar ";
 									cmd+= ip_address+" ";
 									cmd+= "-c "+__dirname+"/.."+commands[0].filepath+" ";
 									cmd+= "-u "+username+" ";
@@ -120,7 +120,11 @@ app.post('/execute', function(req, res){
 									cmd+= "-e "+enable_pw+" ";
 									cmd+= "--log-file "+__dirname+"/../history/"+now+"^"+ip_address+"^"+commands[0].command_name;
 									if(debug) { console.log(cmd); }
-									const { stdout, stderr } = await exec(cmd);
+									try {
+											const { stdout, stderr } = await exec(cmd);
+									} catch (err) {
+										console.error(err);
+									}
 								}
 								AirRecorder();
 							}
