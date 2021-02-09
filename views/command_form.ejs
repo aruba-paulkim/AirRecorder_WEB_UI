@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 	<head>
-	<% include ./header.ejs %>
+	<%- include('header.ejs') %>
 	</head>
 	<body>
-		<% include ./menu.ejs %>
+		<%- include('menu.ejs') %>
 		<hr>
 		<form id="command" name="command" action="/command/<%=seq%>" method="post" autocomplete="off">
 		<input type="hidden" name="seq" value="<%=seq%>">

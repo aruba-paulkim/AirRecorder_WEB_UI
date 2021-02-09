@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 	<head>
-	<% include ./header.ejs %>
+	<%- include('header.ejs') %>
 	</head>
 	<body>
-		<!--h2>Execute</h2-->
-		<% include ./menu.ejs %>
+		<%- include('menu.ejs') %>
 		<hr>
 		<form id="execute" name="execute" action="/execute" method="post" autocomplete="off">
 		<table class="bordered">
