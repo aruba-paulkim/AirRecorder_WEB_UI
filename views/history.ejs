@@ -39,7 +39,7 @@
 			<% for ( var i = 0 ; i < history.length ; i++) { %>
 			<%
 				if(history[i] == ".DS_Store") { continue; }
-				var tmp = history[i].split('^');
+				var tmp = history[i].split('@');
 
 				if(part == "execute_datetime") {
 					if(tmp[0].indexOf(keyword) < 0 ) { continue; }

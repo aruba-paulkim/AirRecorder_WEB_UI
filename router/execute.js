@@ -8,7 +8,7 @@ var util = require('util');
 
 const sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database(__dirname+'/../db/arwebui.db');
-var debug = true;
+var debug = false;
 
 var AirRecorderVersion = "1.6.9";
 
