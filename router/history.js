@@ -70,7 +70,7 @@ app.get('/history/:str_hash', function(req, res){
 			
 		    var cnt = 0;
 		    for ( var i = 0 ; i < history.length ; i++) {
-		    	var tmp = history[i].split('^');
+		    	var tmp = history[i].split('@');
 		    	execute_datetime = tmp[0];
 		    	ip_address = tmp[1];
 		    	command_name = tmp[2];
@@ -113,7 +113,7 @@ app.get('/history/:seq/delete', function(req, res){
 
 		    var cnt = 0;
 		    for ( var i = 0 ; i < history.length ; i++) {
-		    	var tmp = history[i].split('^');
+		    	var tmp = history[i].split('@');
 		    	execute_datetime = tmp[0];
 		    	ip_address = tmp[1];
 		    	command_name = tmp[2];

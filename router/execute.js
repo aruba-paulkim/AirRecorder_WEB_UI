@@ -119,7 +119,7 @@ app.post('/execute', function(req, res){
 									cmd+= "-p "+password+" ";
 									if (enable_pw == "") cmd+= "-e '' ";
 									else cmd+= "-e "+enable_pw+" ";
-									cmd+= "--log-file "+__dirname+"/../history/"+now+"^"+ip_address+"^"+commands[0].command_name;
+									cmd+= "--log-file "+__dirname+"/../history/"+now+"@"+ip_address+"@"+commands[0].command_name;
 									if(debug) { console.log(cmd); }
 									try {
 											const { stdout, stderr } = await exec(cmd);
